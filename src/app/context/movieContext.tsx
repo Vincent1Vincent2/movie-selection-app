@@ -6,24 +6,61 @@ import moviesData from "../../data/movies.json"; // Import data and set it as mo
 
 interface ContextValue {
   //Create a context interface that takes all variables and functions needed
-  movies: Movie[];
+  startMovies: Movie[];
+  trendingMovies: Movie[];
+  recommendedMovies: Movie[];
 }
 
 const MovieContext = createContext<ContextValue>({} as ContextValue);
 
 export function MovieProvider(props: PropsWithChildren) {
-  const [movies, setMovies] = useState<Movie[]>([]);
-  console.log(moviesData);
+  const [startMovies, setStartMovies] = useState<Movie[]>([]);
+  const [trendingMovies, setTrendingMovies] = useState<Movie[]>([]);
+  const [recommendedMovies, setRecommendedMovies] = useState<Movie[]>([]);
+
+  // Function to shuffle an array
+  function randomizeMovies(movie: Movie[]) {
+    for (let i = movie.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [movie[i], movie[j]] = [movie[j], movie[i]];
+    }
+    return movie;
+  }
 
   useEffect(() => {
-    // Set the movies only once when the component mounts
-    setMovies(moviesData);
-  }, []); // Empty dependency array ensures this effect runs only once
+    // Filter out trending movies
+    const trendingMovies = moviesData.filter((movie) => movie.isTrending);
+
+    // Filter out non-trending movies
+    const nonTrendingMovies = moviesData.filter((movie) => !movie.isTrending);
+
+    // Shuffle non-trending movies to randomize the selection
+    const shuffledNonTrendingMovies = randomizeMovies(nonTrendingMovies);
+
+    // Select 5 movies for recommended
+    const recommendedMovies = shuffledNonTrendingMovies.slice(0, 5);
+
+    // Remaining movies for the start section
+    const startMovies = shuffledNonTrendingMovies.slice(5);
+
+    // Set the state accordingly
+    setStartMovies(startMovies);
+    setTrendingMovies(trendingMovies);
+    setRecommendedMovies(recommendedMovies);
+  }, []);
+
+  useEffect(() => {
+    console.log("this is start", startMovies);
+    console.log("this is trend", trendingMovies);
+    console.log("this is Rec", recommendedMovies);
+  });
 
   return (
     <MovieContext.Provider
       value={{
-        movies,
+        startMovies,
+        trendingMovies,
+        recommendedMovies,
       }}
     >
       {props.children}
