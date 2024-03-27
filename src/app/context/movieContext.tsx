@@ -1,7 +1,13 @@
 "use client";
 
 import { Movie } from "@/data/types";
-import { createContext, PropsWithChildren, useEffect, useState } from "react";
+import {
+  createContext,
+  PropsWithChildren,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import moviesData from "../../data/movies.json"; // Import data and set it as moviesData
 
 interface ContextValue {
@@ -67,5 +73,7 @@ export function MovieProvider(props: PropsWithChildren) {
     </MovieContext.Provider>
   );
 }
+
+export const useMovies = () => useContext(MovieContext);
 
 export default MovieProvider;

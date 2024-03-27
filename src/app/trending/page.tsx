@@ -1,7 +1,9 @@
+import TrendingMoviesCard from "./trendingMovies";
+
 export default function TrendingMovies() {
   return (
-    <>
-      <h1>Trending</h1>
-    </>
+    <main>
+      <TrendingMoviesCard />
+    </main>
   );
 }

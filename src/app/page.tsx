@@ -1,9 +1,9 @@
-import Movies from "./movies/page";
+import StartMovies from "./startMovies/page";
 
 export default function Home() {
   return (
     <main>
-      <Movies />
+      <StartMovies />
     </main>
   );
 }
