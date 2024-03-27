@@ -7,24 +7,21 @@ import { useEffect } from "react";
 type PageProps = { params: { title: string } };
 
 export default function MoviePage({ params }: PageProps) {
-  const movie = getProductByTitle(params.title);
+  const url = params.title;
+  const searchParams = decodeURIComponent(url);
+  console.log(searchParams);
+  const movie = useMovies().allMovies.find(
+    (movie) => movie.title === searchParams
+  );
 
   useEffect(() => {
     if (movie) {
       console.log(movie);
     } else {
       console.log("Movie not found");
+      console.log(movie);
     }
   }, [movie]);
-
-  function getProductByTitle(title: string) {
-    const allMovies = [
-      ...useMovies().startMovies,
-      ...useMovies().trendingMovies,
-      ...useMovies().recommendedMovies,
-    ];
-    return allMovies.find((movie) => movie.title === title);
-  }
 
   if (!movie) {
     return (
