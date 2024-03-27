@@ -12,6 +12,7 @@ import moviesData from "../../data/movies.json"; // Import data and set it as mo
 
 interface ContextValue {
   //Create a context interface that takes all variables and functions needed
+  allMovies: Movie[];
   startMovies: Movie[];
   trendingMovies: Movie[];
   recommendedMovies: Movie[];
@@ -20,6 +21,7 @@ interface ContextValue {
 const MovieContext = createContext<ContextValue>({} as ContextValue);
 
 export function MovieProvider(props: PropsWithChildren) {
+  const [allMovies, setAllMovies] = useState<Movie[]>([]);
   const [startMovies, setStartMovies] = useState<Movie[]>([]);
   const [trendingMovies, setTrendingMovies] = useState<Movie[]>([]);
   const [recommendedMovies, setRecommendedMovies] = useState<Movie[]>([]);
@@ -50,6 +52,7 @@ export function MovieProvider(props: PropsWithChildren) {
     const startMovies = shuffledNonTrendingMovies.slice(5);
 
     // Set the state accordingly
+    setAllMovies(moviesData);
     setStartMovies(startMovies);
     setTrendingMovies(trendingMovies);
     setRecommendedMovies(recommendedMovies);
@@ -59,11 +62,13 @@ export function MovieProvider(props: PropsWithChildren) {
     console.log("this is start", startMovies);
     console.log("this is trend", trendingMovies);
     console.log("this is Rec", recommendedMovies);
+    console.log("this is all", allMovies);
   });
 
   return (
     <MovieContext.Provider
       value={{
+        allMovies,
         startMovies,
         trendingMovies,
         recommendedMovies,
