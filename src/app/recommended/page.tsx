@@ -1,3 +1,9 @@
+import RecommendedMoviesCard from "./recomendedMovies";
+
 export default function RecommendedMovies() {
-  return <h1>Recommended</h1>;
+  return (
+    <main>
+      <RecommendedMoviesCard />
+    </main>
+  );
 }
