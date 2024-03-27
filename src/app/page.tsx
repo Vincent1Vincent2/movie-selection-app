@@ -1,7 +1,9 @@
+import Movies from "./movies/page";
+
 export default function Home() {
   return (
     <main>
-      <h1>Hello World</h1>
+      <Movies />
     </main>
   );
 }
