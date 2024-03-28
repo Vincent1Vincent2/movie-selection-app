@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";
+import SearchBar from "./components/SearchBar";
 import MovieProvider from "./context/movieContext";
 import "./globals.css";
 
@@ -23,9 +24,7 @@ export default function RootLayout({
           <header>
             <nav>
               <ul className="flex gap-5 justify-between m-5">
-                <Link href={"/"}>
-                  <li>Logo</li>
-                </Link>
+                <SearchBar />
                 <div className="flex gap-5">
                   <Link href={"/recommended"}>
                     <li>For You</li>

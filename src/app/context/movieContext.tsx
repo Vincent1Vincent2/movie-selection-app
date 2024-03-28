@@ -16,6 +16,9 @@ interface ContextValue {
   startMovies: Movie[];
   trendingMovies: Movie[];
   recommendedMovies: Movie[];
+  searchQuery: string;
+  setSearchQuery: (query: string) => void;
+  filteredMovies: Movie[];
 }
 
 const MovieContext = createContext<ContextValue>({} as ContextValue);
@@ -25,6 +28,11 @@ export function MovieProvider(props: PropsWithChildren) {
   const [startMovies, setStartMovies] = useState<Movie[]>([]);
   const [trendingMovies, setTrendingMovies] = useState<Movie[]>([]);
   const [recommendedMovies, setRecommendedMovies] = useState<Movie[]>([]);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const filteredMovies = allMovies.filter((movie) =>
+    movie.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   // Function to shuffle an array
   function randomizeMovies(movie: Movie[]) {
@@ -72,6 +80,9 @@ export function MovieProvider(props: PropsWithChildren) {
         startMovies,
         trendingMovies,
         recommendedMovies,
+        searchQuery,
+        setSearchQuery,
+        filteredMovies,
       }}
     >
       {props.children}
