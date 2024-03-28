@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import BookmarkButton from "../components/BookmarkButton";
 import { useMovies } from "../context/movieContext";
 
 export default function startMoviesCard() {
@@ -15,6 +16,7 @@ export default function startMoviesCard() {
 
       <p>{movie.year}</p>
       <p>{movie.genre}</p>
+      <BookmarkButton movie={movie} />
     </div>
   ));
 }
