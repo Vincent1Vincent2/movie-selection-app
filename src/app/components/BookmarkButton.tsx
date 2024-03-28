@@ -1,4 +1,5 @@
 import { Movie } from "@/data/types";
+import { Bookmark } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useMovies } from "../context/movieContext";
 
@@ -27,8 +28,17 @@ const BookmarkButton: React.FC<BookmarkButtonProps> = ({ movie }) => {
 
   // Render the bookmark button
   return (
-    <button onClick={handleFavoriteClick}>
-      {isFavorite ? "Remove from Favorites" : "Add to Favorites"}
+    <button
+      onClick={handleFavoriteClick}
+      className={`p-2 rounded-full hover:bg-gray-200 transition-colors ${
+        isFavorite
+          ? "text-yellow-300  bg-slate-200 bg-opacity-50"
+          : "text-gray-950-900 bg-slate-200 bg-opacity-50"
+      }`}
+    >
+      <Bookmark
+        className={`w-6 h-6 ${isFavorite ? "fill-current" : "stroke-current"}`}
+      />
     </button>
   );
 };
