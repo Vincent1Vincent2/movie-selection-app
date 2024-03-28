@@ -1,3 +1,4 @@
+import { Home, Star } from "lucide-react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";
@@ -23,15 +24,20 @@ export default function RootLayout({
         <MovieProvider>
           <header>
             <nav>
-              <ul className="flex gap-5 justify-between m-5">
-                <SearchBar />
-                <div className="flex gap-5">
+              <ul className="flex gap-5 justify-between m-5 items-center">
+                <div className="flex items-center gap-3">
+                  <Link href={"/"}>
+                    <Home />
+                  </Link>
+                  <Link href={"/bookmarks"}>
+                    <Star />
+                  </Link>
+                </div>
+                <div className="flex gap-3 items-center">
                   <Link href={"/recommended"}>
                     <li>For You</li>
                   </Link>
-                  <Link href={"/bookmarks"}>
-                    <li>Bookmarks</li>
-                  </Link>
+                  <SearchBar />
                 </div>
               </ul>
             </nav>
