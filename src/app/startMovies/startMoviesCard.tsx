@@ -1,18 +1,16 @@
-"use client";
-
 import MovieCard from "../components/MovieCard";
+import { MovieCarousel } from "../components/MovieCarousel";
 import { useMovies } from "../context/movieContext";
 
 export default function startMoviesCard() {
-  const { startMovies } = useMovies(); // Get the start movies array from my context
-
-  // Map over the array and display it's contents
-
+  const { startMovies } = useMovies();
   return (
-    <div className="flex flex-wrap gap-5 mx-5  max-sm:justify-center">
+    <MovieCarousel>
       {startMovies.map((movie) => (
-        <MovieCard key={movie.title} movie={movie} />
+        <div key={movie.title} className="embla__slide">
+          <MovieCard movie={movie} />
+        </div>
       ))}
-    </div>
+    </MovieCarousel>
   );
 }

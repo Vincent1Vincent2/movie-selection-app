@@ -1,6 +1,7 @@
 "use client";
 
 import MovieCard from "../components/MovieCard";
+import { MovieCarousel } from "../components/MovieCarousel";
 import { useMovies } from "../context/movieContext";
 
 export default function TrendingMoviesCard() {
@@ -8,10 +9,12 @@ export default function TrendingMoviesCard() {
 
   // Map over the array and display it's contents
   return (
-    <div className="flex flex-wrap gap-5 mx-5">
+    <MovieCarousel>
       {trendingMovies.map((movie) => (
-        <MovieCard key={movie.title} movie={movie} />
+        <div key={movie.title} className="embla__slide">
+          <MovieCard movie={movie} />
+        </div>
       ))}
-    </div>
+    </MovieCarousel>
   );
 }
