@@ -6,7 +6,9 @@ export default function Home() {
   return (
     <main className="flex flex-col gap-10">
       <div>
-        <h2 className="mx-8 font-bold text-2xl py-5">Must See Movies</h2>
+        <h2 className="mx-8 font-bold text-2xl py-5 max-sm:flex max-sm:justify-center">
+          Must See Movies
+        </h2>
         <StartMovies />
       </div>
       <div>

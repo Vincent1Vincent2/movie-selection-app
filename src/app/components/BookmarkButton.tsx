@@ -33,7 +33,7 @@ const BookmarkButton: React.FC<BookmarkButtonProps> = ({ movie }) => {
       className={`p-2 rounded-full hover:bg-gray-200 transition-colors ${
         isFavorite
           ? "text-yellow-300  bg-slate-200 bg-opacity-50"
-          : "text-gray-950-900 bg-slate-200 bg-opacity-50"
+          : "text-gray-950-900 bg-zinc-900 bg-opacity-50"
       }`}
     >
       <Star
