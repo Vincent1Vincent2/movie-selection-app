@@ -29,7 +29,7 @@ export default function RootLayout({
                   <Link href={"/"}>
                     <Home />
                   </Link>
-                  <Link href={"/bookmarks"}>
+                  <Link href={"/favorites"}>
                     <Star className="stroke-yellow-300" />
                   </Link>
                 </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import MovieCard from "../components/MovieCard";
 import { useMovies } from "../context/movieContext";
 
 export default function Bookmarks() {
@@ -7,16 +8,13 @@ export default function Bookmarks() {
 
   return (
     <div>
-      <h1>Bookmarks</h1>
+      <h1>Favorites</h1>
       {favorites.length === 0 ? (
         <p>You haven't added any movies to your favorites yet.</p>
       ) : (
         <div>
           {favorites.map((movie) => (
-            <div key={movie.title}>
-              <img src={movie.thumbnail} alt={movie.title} />
-              <h3>{movie.title}</h3>
-            </div>
+            <MovieCard movie={movie} />
           ))}
         </div>
       )}
