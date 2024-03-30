@@ -1,5 +1,6 @@
 "use client";
 
+import MovieCard from "@/app/components/MovieCard";
 import { useMovies } from "@/app/context/movieContext";
 import Link from "next/link";
 import { useEffect } from "react";
@@ -32,10 +33,33 @@ export default function MoviePage({ params }: PageProps) {
   }
 
   return (
-    <main className="p-5">
-      <h2>{movie.title}</h2>
-      <p>{movie.year}</p>
-      <p>{movie.genre}</p>
+    <main className="bg-zinc-800 mx-5 max-sm:p-5 max-sm:rounded-lg">
+      <div className="flex max-sm:flex-col max-sm:gap-3 max-sm:p-0 p-24 gap-10">
+        <MovieCard movie={movie} />
+        <div className="flex flex-col">
+          <div className="py-2">
+            <span>Plot</span>
+            <p className="py-2">{movie.synopsis}</p>
+          </div>
+
+          <div className="py-2">
+            <span>Actors</span>
+            <div className="max-sm:flex max-sm:flex-col py-2">
+              {movie.actors.map((actor: string) => (
+                <span>{actor}</span>
+              ))}
+            </div>
+          </div>
+          <div className="py-2">
+            <span>Genre</span>
+            <p className="py-2">{movie.genre}</p>
+          </div>
+          <div className="py-2">
+            <span>Release Date</span>
+            <p className="py-2">{movie.year}</p>
+          </div>
+        </div>
+      </div>
     </main>
   );
 }
