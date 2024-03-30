@@ -8,7 +8,7 @@ export default function RecommendedMoviesCard() {
 
   // Map over the array and display it's contents
   return (
-    <div className="flex flex-wrap gap-5 mx-5">
+    <div className="flex flex-wrap gap-5 mx-5 max-sm:justify-center max-sm:items-center">
       {recommendedMovies.map((movie) => (
         <MovieCard movie={movie} />
       ))}

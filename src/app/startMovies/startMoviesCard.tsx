@@ -9,7 +9,7 @@ export default function startMoviesCard() {
   // Map over the array and display it's contents
 
   return (
-    <div className="flex flex-wrap gap-5 mx-5">
+    <div className="flex flex-wrap gap-5 mx-5  max-sm:justify-center">
       {startMovies.map((movie) => (
         <MovieCard movie={movie} />
       ))}

@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={(inter.className, "bg-zinc-900 text-amber-50")}>
         <MovieProvider>
           <header>
             <nav>
@@ -30,7 +30,7 @@ export default function RootLayout({
                     <Home />
                   </Link>
                   <Link href={"/bookmarks"}>
-                    <Star />
+                    <Star className="stroke-yellow-300" />
                   </Link>
                 </div>
                 <div className="flex gap-3 items-center">
@@ -44,16 +44,13 @@ export default function RootLayout({
           </header>
           {children}
           <footer>
-            <ul className="flex gap-5 justify-between m-5">
-              <Link href={"/"}>
-                <li>Logo</li>
-              </Link>
-              <div className="flex gap-5">
-                <Link href={"/recommended"}>
-                  <li>For You</li>
+            <ul className="flex gap-5 justify-center m-5 items-center">
+              <div className="flex items-center gap-3">
+                <Link href={"/"}>
+                  <Home />
                 </Link>
                 <Link href={"/bookmarks"}>
-                  <li>Bookmarks</li>
+                  <Star className="stroke-yellow-300" />
                 </Link>
               </div>
             </ul>
