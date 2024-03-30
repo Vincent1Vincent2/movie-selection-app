@@ -1,9 +1,5 @@
-import RecommendedMoviesCard from "./recomendedMovies";
+import RecommendedMoviesCard from "./recommendedMovies";
 
 export default function RecommendedMovies() {
-  return (
-    <main>
-      <RecommendedMoviesCard />
-    </main>
-  );
+  return <RecommendedMoviesCard />;
 }
