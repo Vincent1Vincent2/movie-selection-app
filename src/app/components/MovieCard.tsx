@@ -8,7 +8,7 @@ interface MovieCardProps {
 
 const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
   return (
-    <div className="relative w-48 h-80 flex flex-col">
+    <div className="relative w-48 h-full flex flex-col">
       <Link href={`/movie/${movie.title}`}>
         <img
           src={movie.thumbnail}

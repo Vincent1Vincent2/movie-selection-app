@@ -1,5 +1,5 @@
 import { Movie } from "@/data/types";
-import { Bookmark } from "lucide-react";
+import { Star } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useMovies } from "../context/movieContext";
 
@@ -36,7 +36,7 @@ const BookmarkButton: React.FC<BookmarkButtonProps> = ({ movie }) => {
           : "text-gray-950-900 bg-slate-200 bg-opacity-50"
       }`}
     >
-      <Bookmark
+      <Star
         className={`w-6 h-6 ${isFavorite ? "fill-current" : "stroke-current"}`}
       />
     </button>
