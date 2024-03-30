@@ -33,6 +33,7 @@ export function MovieProvider(props: PropsWithChildren) {
   const [recommendedMovies, setRecommendedMovies] = useState<Movie[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [favorites, setFavorites] = useState<Movie[]>([]);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const filteredMovies = allMovies.filter((movie) =>
     movie.title.toLowerCase().includes(searchQuery.toLowerCase())
@@ -40,16 +41,18 @@ export function MovieProvider(props: PropsWithChildren) {
 
   // Load favorites from localStorage when the component mounts
   useEffect(() => {
-    const storedFavorites = localStorage.getItem("favorites");
-    if (storedFavorites) {
-      setFavorites(JSON.parse(storedFavorites));
+    const lsFav = localStorage.getItem("favorites");
+    if (lsFav) {
+      setFavorites(JSON.parse(lsFav));
     }
+    setIsLoaded(true);
   }, []);
 
   // Save favorites to localStorage whenever the favorites state changes
   useEffect(() => {
+    if (!isLoaded) return;
     localStorage.setItem("favorites", JSON.stringify(favorites));
-  }, [favorites]);
+  }, [favorites, isLoaded]);
 
   const addToFavorites = (movie: Movie) => {
     setFavorites((prev) => [...prev, movie]);
