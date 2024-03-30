@@ -3,11 +3,11 @@ import { Star } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useMovies } from "../context/movieContext";
 
-interface BookmarkButtonProps {
+interface FavoriteButtonProps {
   movie: Movie;
 }
 
-const BookmarkButton: React.FC<BookmarkButtonProps> = ({ movie }) => {
+const FavoriteButton: React.FC<FavoriteButtonProps> = ({ movie }) => {
   // Get the necessary functions and state from the MovieContext
   const { favorites, addToFavorites, removeFromFavorites } = useMovies();
   const [isFavorite, setIsFavorite] = useState(false);
@@ -43,4 +43,4 @@ const BookmarkButton: React.FC<BookmarkButtonProps> = ({ movie }) => {
   );
 };
 
-export default BookmarkButton;
+export default FavoriteButton;

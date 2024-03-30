@@ -1,6 +1,6 @@
 import { Movie } from "@/data/types";
 import Link from "next/link";
-import BookmarkButton from "./BookmarkButton";
+import FavoriteButton from "./FavoriteButton";
 
 interface MovieCardProps {
   movie: Movie;
@@ -19,7 +19,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
         />
       </Link>
       <div className="absolute top-2 right-2">
-        <BookmarkButton movie={movie} />
+        <FavoriteButton movie={movie} />
       </div>
 
       <div className="flex-1 flex items-center justify-between pt-5">
