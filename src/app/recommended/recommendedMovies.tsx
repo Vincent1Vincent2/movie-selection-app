@@ -14,7 +14,7 @@ export default function RecommendedMoviesCard() {
       </h1>
       <div className="flex flex-wrap gap-5 mx-5 max-sm:justify-center max-sm:items-center">
         {recommendedMovies.map((movie) => (
-          <MovieCard movie={movie} />
+          <MovieCard key={movie.title} movie={movie} />
         ))}
       </div>
     </div>

@@ -16,7 +16,7 @@ export default function Bookmarks() {
       ) : (
         <div className="flex flex-wrap gap-10 mx-5 max-sm:justify-center max-sm:items-center">
           {favorites.map((movie) => (
-            <MovieCard movie={movie} />
+            <MovieCard key={movie.title} movie={movie} />
           ))}
         </div>
       )}
