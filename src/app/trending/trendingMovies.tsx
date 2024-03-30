@@ -10,7 +10,7 @@ export default function TrendingMoviesCard() {
   return (
     <div className="flex flex-wrap gap-5 mx-5">
       {trendingMovies.map((movie) => (
-        <MovieCard movie={movie} />
+        <MovieCard key={movie.title} movie={movie} />
       ))}
     </div>
   );

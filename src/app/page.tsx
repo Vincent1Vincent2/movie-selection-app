@@ -16,7 +16,6 @@ export default function Home() {
         <TrendingMoviesCard />
       </div>
       <div>
-        <h2 className="mx-8 font-bold text-2xl py-5">Recommended Movies</h2>
         <RecommendedMovies />
       </div>
     </main>

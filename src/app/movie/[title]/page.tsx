@@ -41,12 +41,11 @@ export default function MoviePage({ params }: PageProps) {
             <span>Plot</span>
             <p className="py-2">{movie.synopsis}</p>
           </div>
-
           <div className="py-2">
             <span>Actors</span>
             <div className="max-sm:flex max-sm:flex-col py-2">
               {movie.actors.map((actor: string) => (
-                <span>{actor}</span>
+                <span key={actor}>{actor}</span>
               ))}
             </div>
           </div>
