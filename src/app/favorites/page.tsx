@@ -1,22 +1,22 @@
 "use client";
 
+import MovieCard from "../components/MovieCard";
 import { useMovies } from "../context/movieContext";
 
 export default function Bookmarks() {
   const { favorites } = useMovies();
 
   return (
-    <div>
-      <h1>Bookmarks</h1>
+    <div className="flex flex-col">
+      <h1 className="mx-8 font-bold text-2xl py-5 max-sm:flex max-sm:justify-center">
+        Your Favorites
+      </h1>
       {favorites.length === 0 ? (
         <p>You haven't added any movies to your favorites yet.</p>
       ) : (
-        <div>
+        <div className="flex flex-wrap gap-10 mx-5 max-sm:justify-center max-sm:items-center">
           {favorites.map((movie) => (
-            <div key={movie.title}>
-              <img src={movie.thumbnail} alt={movie.title} />
-              <h3>{movie.title}</h3>
-            </div>
+            <MovieCard key={movie.title} movie={movie} />
           ))}
         </div>
       )}
