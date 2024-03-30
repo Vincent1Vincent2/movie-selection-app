@@ -74,3 +74,39 @@
     @apply bg-background text-foreground;
   }
 }
+
+.AccordionArrow {
+  transition: transform 300ms;
+}
+.AccordionTrigger[data-state="open"] > .AccordionArrow {
+  transform: rotate(180deg);
+}
+
+/* styles.css */
+.AccordionContent {
+  overflow: hidden;
+}
+.AccordionContent[data-state="open"] {
+  animation: slideDown 300ms ease-out;
+}
+.AccordionContent[data-state="closed"] {
+  animation: slideUp 300ms ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
