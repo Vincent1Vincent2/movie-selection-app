@@ -1,7 +1,6 @@
 "use client";
 
 import { Movie } from "@/data/types";
-import Image from "next/image";
 import Link from "next/link";
 import FavoriteButton from "./FavoriteButton";
 
@@ -13,12 +12,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
   return (
     <div className="relative w-64 h-full flex flex-col">
       <Link href={`/movie/${movie.title}`}>
-        <Image
-          src={movie.thumbnail}
-          alt={movie.title}
-          width={200}
-          height={300}
-        />
+        <img src={movie.thumbnail} alt={movie.title} width={200} height={300} />
       </Link>
       <div className="absolute top-2 right-2">
         <FavoriteButton movie={movie} />
