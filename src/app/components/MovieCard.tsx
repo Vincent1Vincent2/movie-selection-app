@@ -1,7 +1,6 @@
 "use client";
-
 import { Movie } from "@/data/types";
-import Link from "next/link";
+import { Link } from "lucide-react";
 import FavoriteButton from "./FavoriteButton";
 
 interface MovieCardProps {
@@ -12,7 +11,14 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
   return (
     <div className="relative w-64 h-full flex flex-col">
       <Link href={`/movie/${movie.title}`}>
-        <img src={movie.thumbnail} alt={movie.title} width={200} height={300} />
+        <picture>
+          <img
+            src={movie.thumbnail}
+            alt={movie.title}
+            width={200}
+            height={300}
+          />
+        </picture>
       </Link>
       <div className="absolute top-2 right-2">
         <FavoriteButton movie={movie} />
