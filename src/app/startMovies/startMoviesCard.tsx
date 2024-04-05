@@ -1,3 +1,4 @@
+"use client";
 import MovieCard from "../components/MovieCard";
 import { MovieCarousel } from "../components/MovieCarousel";
 import { useMovies } from "../context/movieContext";
