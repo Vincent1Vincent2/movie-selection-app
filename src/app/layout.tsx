@@ -26,7 +26,7 @@ export default function RootLayout({
         className={(inter.className, "bg-zinc-900 text-amber-50")}
       >
         <MovieProvider>
-          <header id="header" role="heading">
+          <header aria-level={1} id="header" role="heading">
             <nav role="navigation">
               <ul
                 role="list"
