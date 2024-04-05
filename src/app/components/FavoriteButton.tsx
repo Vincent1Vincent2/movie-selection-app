@@ -1,6 +1,6 @@
 import { Movie } from "@/data/types";
 import { Star } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useMovies } from "../context/movieContext";
 
 interface FavoriteButtonProps {
@@ -13,13 +13,12 @@ const FavoriteButton: React.FC<FavoriteButtonProps> = ({ movie }) => {
   const [isFavorite, setIsFavorite] = useState(false);
 
   // Check if the movie is in the favorites array
-  useEffect(() => {
-    setIsFavorite(favorites.some((m: Movie) => m.title === movie.title));
-  }, [favorites, movie.title]);
 
   // Handle the bookmark button click
   const handleFavoriteClick = () => {
-    if (isFavorite) {
+    const isMovieInFavorites = favorites.some((m) => m.title === movie.title);
+    setIsFavorite(isMovieInFavorites);
+    if (isMovieInFavorites) {
       removeFromFavorites(movie);
     } else {
       addToFavorites(movie);
@@ -29,6 +28,8 @@ const FavoriteButton: React.FC<FavoriteButtonProps> = ({ movie }) => {
   // Render the bookmark button
   return (
     <button
+      role="button"
+      aria-label="Favorite"
       onClick={handleFavoriteClick}
       className={`p-2 rounded-full hover:bg-gray-200 transition-colors ${
         isFavorite
