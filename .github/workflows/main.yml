@@ -1,0 +1,20 @@
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.2
+        with:
+          # Vincent Ahlin. For example, movie-selection-app with actions/checkout
+          repository: ${{ https://github.com/Vincent1Vincent2/movie-selection-app.git }}
+          # The branch, tag or SHA to checkout. When checking out the repository that triggered a workflow, this defaults to the reference or SHA for that event.  Otherwise, uses the default branch.
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4.0.2
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
