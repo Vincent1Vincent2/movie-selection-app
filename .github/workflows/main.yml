@@ -1,3 +1,4 @@
+name: CI / CL TEST
 on:
   push:
     branches:
@@ -10,9 +11,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4.1.2
         with:
-          # Vincent Ahlin. For example, movie-selection-app with actions/checkout
-          repository: ${{ https://github.com/Vincent1Vincent2/movie-selection-app.git }}
-          # The branch, tag or SHA to checkout. When checking out the repository that triggered a workflow, this defaults to the reference or SHA for that event.  Otherwise, uses the default branch.
+          repository: Vincent1Vincent2/movie-selection-app
       - name: Setup Node.js environment
         uses: actions/setup-node@v4.0.2
       - run: npm ci
