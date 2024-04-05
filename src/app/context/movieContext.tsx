@@ -19,6 +19,9 @@ interface ContextValue {
   searchQuery: string;
   setSearchQuery: (query: string) => void;
   filteredMovies: Movie[];
+  favorites: Movie[];
+  addToFavorites: (movie: Movie) => void;
+  removeFromFavorites: (movie: Movie) => void;
 }
 
 const MovieContext = createContext<ContextValue>({} as ContextValue);
@@ -29,10 +32,35 @@ export function MovieProvider(props: PropsWithChildren) {
   const [trendingMovies, setTrendingMovies] = useState<Movie[]>([]);
   const [recommendedMovies, setRecommendedMovies] = useState<Movie[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [favorites, setFavorites] = useState<Movie[]>([]);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const filteredMovies = allMovies.filter((movie) =>
     movie.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
+  // Load favorites from localStorage when the component mounts
+  useEffect(() => {
+    const lsFav = localStorage.getItem("favorites");
+    if (lsFav) {
+      setFavorites(JSON.parse(lsFav));
+    }
+    setIsLoaded(true);
+  }, []);
+
+  // Save favorites to localStorage whenever the favorites state changes
+  useEffect(() => {
+    if (!isLoaded) return;
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites, isLoaded]);
+
+  const addToFavorites = (movie: Movie) => {
+    setFavorites((prev) => [...prev, movie]);
+  };
+
+  const removeFromFavorites = (movie: Movie) => {
+    setFavorites((prev) => prev.filter((m) => m.title !== movie.title));
+  };
 
   // Function to shuffle an array
   function randomizeMovies(movie: Movie[]) {
@@ -83,6 +111,9 @@ export function MovieProvider(props: PropsWithChildren) {
         searchQuery,
         setSearchQuery,
         filteredMovies,
+        favorites,
+        addToFavorites,
+        removeFromFavorites,
       }}
     >
       {props.children}

@@ -1,0 +1,19 @@
+name: CI / CL TEST
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.2
+        with:
+          repository: Vincent1Vincent2/movie-selection-app
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4.0.2
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
