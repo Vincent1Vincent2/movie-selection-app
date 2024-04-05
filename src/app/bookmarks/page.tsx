@@ -1,5 +1,3 @@
-"use client";
-
 import MovieCard from "../components/MovieCard";
 import { useMovies } from "../context/movieContext";
 

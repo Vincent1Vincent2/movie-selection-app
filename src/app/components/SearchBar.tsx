@@ -1,5 +1,4 @@
 "use client";
-
 import { Movie } from "@/data/types";
 import { Search } from "lucide-react";
 import Link from "next/link";
@@ -51,7 +50,7 @@ export default function SearchBar() {
         </div>
       )}
       {(searchQuery.length > 0 || isOpen) && (
-        <div className="absolute z-10 w-full bg-zinc-900 border rounded shadow-lg">
+        <div className="absolute z-10 w-full bg-zinc-900 border rounded shadow-lg overflow-y-scroll h-96">
           {filteredMovies.map((movie) => (
             <Link
               href={`/movie/${encodeURIComponent(movie.title)}`}

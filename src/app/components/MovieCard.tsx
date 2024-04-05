@@ -1,6 +1,6 @@
 "use client";
 import { Movie } from "@/data/types";
-import { Link } from "lucide-react";
+import Link from "next/link";
 import FavoriteButton from "./FavoriteButton";
 
 interface MovieCardProps {

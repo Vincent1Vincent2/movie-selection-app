@@ -6,7 +6,7 @@ export default function RecommendedMovies() {
       <h1 className="mx-8 font-bold text-2xl py-5 max-sm:flex max-sm:justify-center">
         Your Recommendations
       </h1>
-      <RecommendedMoviesCard />;
+      <RecommendedMoviesCard />
     </main>
   );
 }
