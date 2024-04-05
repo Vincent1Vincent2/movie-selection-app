@@ -1,9 +1,8 @@
 "use client";
-
 import MovieCard from "../components/MovieCard";
 import { useMovies } from "../context/movieContext";
 
-export default function Bookmarks() {
+function Bookmarks() {
   const { favorites } = useMovies();
 
   return (
@@ -23,3 +22,5 @@ export default function Bookmarks() {
     </div>
   );
 }
+
+export default Bookmarks;

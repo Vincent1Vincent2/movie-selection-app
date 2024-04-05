@@ -1,4 +1,5 @@
 import { Movie } from "@/data/types";
+import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 import { useState } from "react";
 import { useMovies } from "../context/movieContext";
@@ -27,7 +28,9 @@ const FavoriteButton: React.FC<FavoriteButtonProps> = ({ movie }) => {
 
   // Render the bookmark button
   return (
-    <button
+    <motion.button
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.9 }}
       role="button"
       aria-label="Favorite"
       onClick={handleFavoriteClick}
@@ -40,7 +43,7 @@ const FavoriteButton: React.FC<FavoriteButtonProps> = ({ movie }) => {
       <Star
         className={`w-6 h-6 ${isFavorite ? "fill-current" : "stroke-current"}`}
       />
-    </button>
+    </motion.button>
   );
 };
 

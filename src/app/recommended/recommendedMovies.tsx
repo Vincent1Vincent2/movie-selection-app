@@ -1,5 +1,4 @@
 "use client";
-
 import MovieCard from "../components/MovieCard";
 import { MovieCarousel } from "../components/MovieCarousel";
 import { useMovies } from "../context/movieContext";
@@ -11,7 +10,7 @@ export default function RecommendedMoviesCard() {
   return (
     <MovieCarousel>
       {recommendedMovies.map((movie) => (
-        <div key={movie.title} className="embla__slide">
+        <div key={movie.title} className="embla__slide flex justify-center ">
           <MovieCard movie={movie} />
         </div>
       ))}

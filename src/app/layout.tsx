@@ -21,22 +21,28 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={(inter.className, "bg-zinc-900 text-amber-50")}>
+      <body
+        role="document"
+        className={(inter.className, "bg-zinc-900 text-amber-50")}
+      >
         <MovieProvider>
-          <header>
-            <nav>
-              <ul className="flex gap-5 justify-between m-5 items-center">
+          <header aria-level={1} id="header" role="heading">
+            <nav role="navigation">
+              <ul
+                role="list"
+                className="flex gap-5 justify-between m-5 items-center"
+              >
                 <div className="flex items-center gap-3">
-                  <Link href={"/"}>
+                  <Link role="link" href={"/"}>
                     <Home />
                   </Link>
-                  <Link href={"/favorites"}>
+                  <Link role="link" href={"/favorites"}>
                     <Star className="stroke-yellow-300" />
                   </Link>
                 </div>
                 <div className="flex gap-3 items-center">
-                  <Link href={"/recommended"}>
-                    <li>For You</li>
+                  <Link role="link" href={"/recommended"}>
+                    <li role="listitem">For You</li>
                   </Link>
                   <SearchBar />
                 </div>
@@ -44,13 +50,16 @@ export default function RootLayout({
             </nav>
           </header>
           {children}
-          <footer>
-            <ul className="flex gap-5 justify-center m-5 items-center">
+          <footer role="contentinfo">
+            <ul
+              role="list"
+              className="flex gap-5 justify-center m-5 items-center"
+            >
               <div className="flex items-center gap-3">
-                <Link href={"/"}>
+                <Link role="link" href={"/"}>
                   <Home />
                 </Link>
-                <Link href={"/bookmarks"}>
+                <Link role="link" href={"/bookmarks"}>
                   <Star className="stroke-yellow-300" />
                 </Link>
               </div>
