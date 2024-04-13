@@ -15,17 +15,17 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
           <img
             src={movie.thumbnail}
             alt={movie.title}
-            width={200}
+            width={300}
             height={300}
           />
         </picture>
       </Link>
-      <div className="absolute top-2 right-2">
+      <div className="absolute top-2 left-52">
         <FavoriteButton movie={movie} />
       </div>
-      <div className="flex-1 flex items-center justify-between pt-5">
-        <h3 className="text-lg font-bold truncate">{movie.title}</h3>
-        <p>{movie.rating}</p>
+      <div className="flex items-start pt-5 justify-between">
+        <h3 className="text-lg font-bold w-40">{movie.title}</h3>
+        <p className="w-16">{movie.rating}</p>
       </div>
     </div>
   );

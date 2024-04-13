@@ -50,7 +50,7 @@ export default function RootLayout({
             </nav>
           </header>
           {children}
-          <footer role="contentinfo">
+          <footer role="contentinfo" className="absolute top-full">
             <ul
               role="list"
               className="flex gap-5 justify-center m-5 items-center"
