@@ -17,6 +17,7 @@ If you haven't seen a movie and would like to, just favorite it.
 Fetures
 
 - Movies added to favorites saves to localstorage
+- Jest testing
 
 <img src="src/app/assets/movieSelectionAppGif.gif" width="400" />
 
