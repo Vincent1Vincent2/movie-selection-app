@@ -29,13 +29,13 @@ export function MovieCarousel(props: PropsWithChildren) {
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">{props.children}</div>
       </div>
-      <div className="flex justify-between px-10 max-sm:px-2 relative -top-64">
+      <div className="flex justify-between px-10 max-sm:px-2 relative -top-80">
         <ChevronLeft
           className="embla__prev Right h-8 w-12 bg-black bg-opacity-75 rounded-full align-middle"
           onClick={scrollPrev}
         />
         <ChevronRight
-          className="embla__prev  Left h-8 w-12 bg-black bg-opacity-75 rounded-full align-middle"
+          className="embla__prev Left h-8 w-12 bg-black bg-opacity-75 rounded-full align-middle"
           onClick={scrollNext}
         />
       </div>
